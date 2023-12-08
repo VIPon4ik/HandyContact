@@ -1,12 +1,15 @@
 import React from 'react';
-import { NavLink, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import Header from 'components/Header/Header';
+import { Container } from './Layout.styled';
 
 const Layout = () => {
   return (
     <>
       <Header />
-      <Outlet />
+      <Container>
+        <Outlet />
+      </Container>
     </>
   );
 };

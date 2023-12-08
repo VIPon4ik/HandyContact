@@ -3,5 +3,16 @@ import styled from "@emotion/styled";
 export const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 30px;
+  min-width: 280px;
+  max-width: 420px;
+  margin: 0 auto;
+  box-shadow: 1px 1px 4px 1px rgba(0,0,0,0.2);
+  padding: 40px 20px;
+  border-radius: 4px;
+  background-color: #fff;
+`
+
+export const CentredTitle = styled.h1`
+  text-align: center;
 `
