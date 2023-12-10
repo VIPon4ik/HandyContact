@@ -3,9 +3,8 @@ import background from '../../images/background-image.jpg';
 
 export const Container = styled.main`
   padding: 0 20px;
-  min-width: 320px;
-  min-height: 100vh;
-  padding-top: 64px;
+  min-width: 320px; 
+  padding-top: 124px;
 
   &::before {
     content: ' ';

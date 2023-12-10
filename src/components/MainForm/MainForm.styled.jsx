@@ -1,9 +1,6 @@
 import styled from "@emotion/styled";
 
-export const StyledForm = styled.form`
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
+export const FormContainer = styled.div`
   min-width: 280px;
   max-width: 420px;
   margin: 0 auto;
@@ -13,6 +10,13 @@ export const StyledForm = styled.form`
   background-color: #fff;
 `
 
+export const StyledForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+`
+
 export const CentredTitle = styled.h1`
   text-align: center;
+  margin-bottom: 20px;
 `

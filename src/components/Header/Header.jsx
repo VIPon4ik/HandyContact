@@ -1,16 +1,18 @@
 import React from 'react'
+import { HeaderContainer, NavContainer, HeaderLink } from './Header.styled'
 import { NavLink } from 'react-router-dom'
-import { HeaderContainer } from './Header.styled'
+import HomeIcon from '@mui/icons-material/Home'
+import { Button } from '@mui/material'
 
 const Header = () => {
   return (
     <HeaderContainer>
-      <nav>
-        <NavLink to='/'>Home</NavLink>
-        <NavLink to='/'>Contacts</NavLink>
-      </nav>
+      <NavContainer>
+        <Button variant='contained' LinkComponent={HeaderLink} disableElevation to='/'><HomeIcon /></Button>
+        <Button variant='contained' LinkComponent={HeaderLink} disableElevation to='contacts'>Contacts</Button>
+      </NavContainer>
       <div>
-        <NavLink to='login'>Login</NavLink>
+        <Button variant='contained' LinkComponent={HeaderLink} disableElevation to='login'>Login</Button>
       </div>
     </HeaderContainer>
   )
