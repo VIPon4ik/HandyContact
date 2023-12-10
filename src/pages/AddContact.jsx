@@ -13,6 +13,8 @@ const AddContact = () => {
     const number = e.currentTarget.elements.number.value;
 
     dispatch(addContact({ name, number }));
+
+    e.currentTarget.reset();
   }
 
   return <MainForm page="contacts" title="Add contact" handleSubmit={handleSubmit} />;

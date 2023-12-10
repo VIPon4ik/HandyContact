@@ -2,7 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { selectToken } from '../redux/selectors';
-import { signInByToken, token as authToken } from '../redux/operations';
+import { signInByToken, token as authToken, getContacts } from '../redux/operations';
 import Layout from './Layout/Layout';
 import Registration from 'pages/Registration';
 import Home from 'pages/Home';
@@ -18,6 +18,7 @@ export const App = () => {
     if (token) {
       authToken.setToken(token);
       dispatch(signInByToken(token));
+      dispatch(getContacts());
     }
   }, []);
 
