@@ -36,3 +36,17 @@ export const signInByToken = createAsyncThunk(
     }
   }
 );
+
+
+export const addContact = createAsyncThunk(
+  'contacts/addContact',
+  async ({ name, number }, thunkAPI) => {
+    try {
+      const response = await axios.post('/contacts', { name, number });
+      console.log(response);
+      return response.data;
+    } catch (e) {
+      thunkAPI.rejectWithValue(e.message);
+    }
+  }
+)
