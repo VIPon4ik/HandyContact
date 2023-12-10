@@ -38,9 +38,15 @@ const MainForm = ({ page, title, handleSubmit }) => {
         <Button variant="contained" type="submit" size="large">
           Sign In
         </Button>
-        <Link component={RouterLink} to="/register">
-          Don't have an account? Register
-        </Link>
+        {page !== 'contacts' && page === 'login' ? (
+          <Link component={RouterLink} to={`/registration`}>
+            Don't have an account? Sign up
+          </Link>
+        ) : (
+          <Link component={RouterLink} to={`/login`}>
+            Have an account? Sign in
+          </Link>
+        )}
       </StyledForm>
     </FormContainer>
   );

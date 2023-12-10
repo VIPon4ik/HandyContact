@@ -20,4 +20,5 @@ export const CentredTitle = styled.h1`
   text-align: center;
   margin-bottom: 20px;
   text-transform: capitalize;
+  color: rgb(67, 77, 91);
 `

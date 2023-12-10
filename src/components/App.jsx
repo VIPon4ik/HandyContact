@@ -13,6 +13,7 @@ export const App = () => {
         <Route path="login" element={<Login />} />
         <Route path="registration" element={<Registration />} />
         <Route path="contacts" element={<Contacts />} />
+        <Route path="editContact/:id" element={<p>Edit contact</p>} />
         <Route path="*" element={<p>Not found</p>} />
       </Route>
     </Routes>
