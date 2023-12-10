@@ -1,4 +1,5 @@
 @import-normalize; /* bring in normalize.css styles */
+
 *,
 *::after,
 *::before {
@@ -27,5 +28,4 @@ p {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-    background: #1163c1;
 }

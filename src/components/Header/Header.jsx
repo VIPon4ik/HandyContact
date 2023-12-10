@@ -1,6 +1,5 @@
 import React from 'react'
 import { HeaderContainer, NavContainer, HeaderLink } from './Header.styled'
-import { NavLink } from 'react-router-dom'
 import HomeIcon from '@mui/icons-material/Home'
 import { Button } from '@mui/material'
 
@@ -11,9 +10,10 @@ const Header = () => {
         <Button variant='contained' LinkComponent={HeaderLink} disableElevation to='/'><HomeIcon /></Button>
         <Button variant='contained' LinkComponent={HeaderLink} disableElevation to='contacts'>Contacts</Button>
       </NavContainer>
-      <div>
-        <Button variant='contained' LinkComponent={HeaderLink} disableElevation to='login'>Login</Button>
-      </div>
+      <NavContainer>
+        <Button variant='contained' LinkComponent={HeaderLink} disableElevation to='login'>Sign in</Button>
+        <Button variant='contained' LinkComponent={HeaderLink} disableElevation to='registration'>Sign up</Button>
+      </NavContainer>
     </HeaderContainer>
   )
 }

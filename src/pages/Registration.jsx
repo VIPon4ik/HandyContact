@@ -1,11 +1,8 @@
-import React from 'react'
+import React from 'react';
+import MainForm from 'components/MainForm/MainForm';
 
 const Registration = () => {
-  return (
-    <div>
-      
-    </div>
-  )
-}
+  return <MainForm page="register" title='Sign up' />;
+};
 
-export default Registration
+export default Registration;

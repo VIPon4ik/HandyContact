@@ -19,4 +19,5 @@ export const StyledForm = styled.form`
 export const CentredTitle = styled.h1`
   text-align: center;
   margin-bottom: 20px;
+  text-transform: capitalize;
 `
