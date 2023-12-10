@@ -4,8 +4,23 @@ import Layout from "./Layout/Layout";
 import Login from "pages/Login/Login";
 import Registration from "pages/Registration";
 import Contacts from "pages/Contacts";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { selectToken } from "../redux/selectors";
+import { signInByToken } from "../redux/operations";
+import { token as authToken } from "../redux/operations";
 
 export const App = () => {
+  const dispatch = useDispatch();
+  const token = useSelector(selectToken);
+
+  useEffect(() => { 
+    if (token) {
+      authToken.setToken(token);
+      dispatch(signInByToken(token));
+    }
+  }, [])
+
   return (
     <Routes>
       <Route path="/" element={<Layout />}>

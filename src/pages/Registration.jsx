@@ -1,7 +1,7 @@
 import React from 'react';
 import MainForm from 'components/MainForm/MainForm';
 import { useDispatch } from 'react-redux';
-import { SignUp } from '../redux/operations';
+import { signUp } from '../redux/operations';
 
 const Registration = () => {
   const dispatch = useDispatch();
@@ -13,7 +13,7 @@ const Registration = () => {
     const email = e.currentTarget.elements.email.value;
     const password = e.currentTarget.elements.password.value;
 
-    dispatch(SignUp({ name, email, password }));
+    dispatch(signUp({ name, email, password }));
     e.currentTarget.reset();
   }
 
