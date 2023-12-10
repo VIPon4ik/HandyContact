@@ -4,8 +4,12 @@ import HomeIcon from '@mui/icons-material/Home';
 import { Button } from '@mui/material';
 import AuthMenu from 'components/AuthMenu/AuthMenu';
 import UserMenu from 'components/UserMenu/UserMenu';
+import { useSelector } from 'react-redux';
+import { selectName } from '../../redux/selectors';
 
 const Header = () => {
+  const name = useSelector(selectName);
+  console.log(name);
   return (
     <HeaderContainer>
       <NavContainer>
@@ -26,7 +30,7 @@ const Header = () => {
           Contacts
         </Button>
       </NavContainer>
-      <AuthMenu />
+      {name ? <UserMenu name={name} /> : <AuthMenu />}
     </HeaderContainer>
   );
 };

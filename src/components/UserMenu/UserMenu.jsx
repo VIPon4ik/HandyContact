@@ -2,24 +2,24 @@ import React from 'react';
 import { Button } from '@mui/material';
 import { NavContainer, HeaderLink } from 'components/Header/Header.styled';
 
-const UserMenu = () => {
+const UserMenu = ({ name }) => {
   return (
     <NavContainer>
       <Button
         variant="contained"
         LinkComponent={HeaderLink}
         disableElevation
-        to="login"
+        to="contacts"
       >
-        Sign in
+        {name}
       </Button>
       <Button
         variant="contained"
         LinkComponent={HeaderLink}
         disableElevation
-        to="registration"
+        to="log-out"
       >
-        Sign up
+        Log Out
       </Button>
     </NavContainer>
   );
