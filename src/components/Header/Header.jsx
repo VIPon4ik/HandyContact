@@ -5,11 +5,12 @@ import { Button } from '@mui/material';
 import AuthMenu from 'components/AuthMenu/AuthMenu';
 import UserMenu from 'components/UserMenu/UserMenu';
 import { useSelector } from 'react-redux';
-import { selectName } from '../../redux/selectors';
+import { selectIsLoading, selectName } from '../../redux/selectors';
 
 const Header = () => {
   const name = useSelector(selectName);
-  console.log(name);
+  const isLoading = useSelector(selectIsLoading);
+
   return (
     <HeaderContainer>
       <NavContainer>
@@ -30,7 +31,7 @@ const Header = () => {
           Contacts
         </Button>
       </NavContainer>
-      {name ? <UserMenu name={name} /> : <AuthMenu />}
+      {!isLoading && (name ? <UserMenu name={name} /> : <AuthMenu />)}
     </HeaderContainer>
   );
 };

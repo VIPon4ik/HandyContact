@@ -33,11 +33,13 @@ export const authSlice = createSlice({
       state.email = action.payload.user.email;
       state.token = action.payload.token;
       state.isLogged = true;
+      state.isLoading = false;
     })
     .addCase(signInByToken.fulfilled, (state, action) => {
       state.name = action.payload.name;
       state.email = action.payload.email;
       state.isLogged = true;
+      state.isLoading = false;
     })
   },
 });
