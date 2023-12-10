@@ -9,7 +9,7 @@ const MainForm = ({ page, title, handleSubmit }) => {
   return (
     <FormContainer>
       <CentredTitle>{title}</CentredTitle>
-      <StyledForm>
+      <StyledForm onSubmit={handleSubmit}>
         {page === 'contacts' ? (
           <TextField label="Name" variant="outlined" type="text" name="name" />
         ) : (
