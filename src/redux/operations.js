@@ -30,7 +30,6 @@ export const signInByToken = createAsyncThunk(
   async (token, thunkAPI) => {
     try {
       const response = await axios.get('users/current', token);
-      console.log(response);
       return response.data;
     } catch (e) {
       thunkAPI.rejectWithValue(e.message);

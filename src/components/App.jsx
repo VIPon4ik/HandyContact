@@ -1,25 +1,25 @@
-import Home from "pages/Home";
-import { Route, Routes } from "react-router-dom";
-import Layout from "./Layout/Layout";
-import Login from "pages/Login/Login";
-import Registration from "pages/Registration";
-import Contacts from "pages/Contacts";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
-import { selectToken } from "../redux/selectors";
-import { signInByToken } from "../redux/operations";
-import { token as authToken } from "../redux/operations";
+import { Route, Routes } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { selectToken } from '../redux/selectors';
+import { signInByToken, token as authToken } from '../redux/operations';
+import Layout from './Layout/Layout';
+import Registration from 'pages/Registration';
+import Home from 'pages/Home';
+import Login from 'pages/Login/Login';
+import Contacts from 'pages/Contacts';
+import AddContact from 'pages/AddContact';
 
 export const App = () => {
   const dispatch = useDispatch();
   const token = useSelector(selectToken);
 
-  useEffect(() => { 
+  useEffect(() => {
     if (token) {
       authToken.setToken(token);
       dispatch(signInByToken(token));
     }
-  }, [])
+  }, []);
 
   return (
     <Routes>
@@ -27,8 +27,9 @@ export const App = () => {
         <Route index element={<Home />} />
         <Route path="login" element={<Login />} />
         <Route path="registration" element={<Registration />} />
-        <Route path="logout" element={<p>Log Out</p>} />
+        <Route path="log-out" element={<p>Log Out</p>} />
         <Route path="contacts" element={<Contacts />} />
+        <Route path="add-contact" element={<AddContact />} />
         <Route path="edit-contact/:id" element={<p>Edit contact</p>} />
         <Route path="*" element={<p>Not found</p>} />
       </Route>

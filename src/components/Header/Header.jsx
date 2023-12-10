@@ -26,6 +26,14 @@ const Header = () => {
           variant="contained"
           LinkComponent={HeaderLink}
           disableElevation
+          to="add-contact"
+        >
+          Add contact
+        </Button>
+        <Button
+          variant="contained"
+          LinkComponent={HeaderLink}
+          disableElevation
           to="contacts"
         >
           Contacts
