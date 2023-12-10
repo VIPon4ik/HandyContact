@@ -10,6 +10,9 @@ const MainForm = ({ page, title, handleSubmit }) => {
     <FormContainer>
       <CentredTitle>{title}</CentredTitle>
       <StyledForm onSubmit={handleSubmit}>
+        {page === 'registration' && (
+          <TextField label="Name" variant="outlined" type="text" name="name" />
+        )}
         {page === 'contacts' ? (
           <TextField label="Name" variant="outlined" type="text" name="name" />
         ) : (
