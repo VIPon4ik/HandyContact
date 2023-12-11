@@ -26,7 +26,7 @@ const Header = () => {
           variant="contained"
           LinkComponent={HeaderLink}
           disableElevation
-          to="add-contact"
+          to="contacts/add-contact"
         >
           Add contact
         </Button>
@@ -35,6 +35,7 @@ const Header = () => {
           LinkComponent={HeaderLink}
           disableElevation
           to="contacts"
+          end
         >
           Contacts
         </Button>

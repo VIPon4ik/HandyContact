@@ -28,10 +28,10 @@ export const App = () => {
         <Route index element={<Home />} />
         <Route path="login" element={<Login />} />
         <Route path="registration" element={<Registration />} />
-        <Route path="log-out" element={<p>Log Out</p>} />
+        <Route path="logout" element={<p>Log Out</p>} />
         <Route path="contacts" element={<Contacts />} />
-        <Route path="add-contact" element={<AddContact />} />
-        <Route path="edit-contact/:id" element={<p>Edit contact</p>} />
+        <Route path="contacts/add-contact" element={<AddContact />} />
+        <Route path="contacts/edit-contact/:id" element={<p>Edit contact</p>} />
         <Route path="*" element={<p>Not found</p>} />
       </Route>
     </Routes>

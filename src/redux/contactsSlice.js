@@ -19,6 +19,10 @@ export const contactsSlice = createSlice({
   },
   extraReducers: builder => {
     builder
+    .addCase(getContacts.pending, pendingHandler)
+    .addCase(getContacts.rejected, rejectedHandler)
+    .addCase(deleteContact.pending, pendingHandler)
+    .addCase(deleteContact.rejected, rejectedHandler)
     .addCase(getContacts.fulfilled, (state, action) => {
       state.items = [...action.payload];
     })

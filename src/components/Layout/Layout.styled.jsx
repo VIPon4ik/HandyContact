@@ -13,6 +13,7 @@ export const Container = styled.main`
     left: 0;
     width: 100%;
     height: 100%;
+    max-height: 91vh;
     background-image: url(${background});
     opacity: 0.2;
     background-repeat: no-repeat;

@@ -17,7 +17,7 @@ const UserMenu = ({ name }) => {
         variant="contained"
         LinkComponent={HeaderLink}
         disableElevation
-        to="log-out"
+        to="logout"
       >
         Log Out
       </Button>
