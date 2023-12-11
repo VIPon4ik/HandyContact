@@ -9,6 +9,7 @@ import Home from 'pages/Home';
 import Login from 'pages/Login/Login';
 import Contacts from 'pages/Contacts';
 import AddContact from 'pages/AddContact';
+import EditContact from 'pages/EditContact';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -31,7 +32,7 @@ export const App = () => {
         <Route path="logout" element={<p>Log Out</p>} />
         <Route path="contacts" element={<Contacts />} />
         <Route path="contacts/add-contact" element={<AddContact />} />
-        <Route path="contacts/edit-contact/:id" element={<p>Edit contact</p>} />
+        <Route path="contacts/edit-contact/:id" element={<EditContact />} />
         <Route path="*" element={<p>Not found</p>} />
       </Route>
     </Routes>
