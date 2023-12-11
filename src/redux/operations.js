@@ -40,6 +40,19 @@ export const signInByToken = createAsyncThunk(
   }
 );
 
+export const logOut = createAsyncThunk(
+  'auth/logOut',
+  async (_, thunkAPI) => {
+    try {
+      const response = await axios.post('users/logout');
+      console.log(response);
+      return response.data;
+    } catch (e) {
+      thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
+
 // Contacts operations
 
 export const addContact = createAsyncThunk(

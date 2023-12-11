@@ -1,11 +1,16 @@
-import React from 'react'
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { logOut } from '../redux/operations';
+import { token } from '../redux/operations';
 
 const Logout = () => {
-  return (
-    <>
-      
-    </>
-  )
-}
+  const dispatch = useDispatch();
 
-export default Logout
+  useEffect(() => {
+    token.removeToken();
+    dispatch(logOut());
+  }, [dispatch]);
+  return <></>;
+};
+
+export default Logout;

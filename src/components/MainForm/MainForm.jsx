@@ -10,8 +10,10 @@ const MainForm = ({ page, title, handleSubmit }) => {
     <FormContainer>
       <CentredTitle>{title}</CentredTitle>
       <StyledForm onSubmit={handleSubmit}>
-        <TextField label="Name" variant="outlined" type="text" name="name" />
-        {page === 'registration' && (
+        {page !== 'login' && (
+          <TextField label="Name" variant="outlined" type="text" name="name" />
+        )}
+        {(page === 'registration' || page === 'login') && (
           <TextField
             label="Email"
             variant="outlined"
