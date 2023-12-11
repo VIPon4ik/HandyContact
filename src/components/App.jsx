@@ -22,6 +22,7 @@ export const App = () => {
       dispatch(signInByToken(token));
       dispatch(getContacts());
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch]);
 
   return (
