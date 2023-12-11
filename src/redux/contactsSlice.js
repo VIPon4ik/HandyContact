@@ -30,7 +30,7 @@ export const contactsSlice = createSlice({
       .addCase(deleteContact.rejected, rejectedHandler)
       .addCase(addContact.pending, pendingHandler)
       .addCase(addContact.rejected, rejectedHandler)
-      
+
       .addCase(getContacts.fulfilled, (state, action) => {
         state.items = [...action.payload];
         state.isLoading = false;
@@ -45,6 +45,24 @@ export const contactsSlice = createSlice({
         state.isLoading = false;
         state.error = null;
         state.items.push(action.payload);
-      });
+      })
+      .addCase(
+        editContact.fulfilled,
+        (state, { payload: { id, name, number } }) => {
+          state.isLoading = false;
+          state.error = null;
+          state.items = state.items.map(item => {
+            if (item.id !== id) {
+              return item;
+            }
+
+            return {
+              id,
+              name,
+              number,
+            };
+          });
+        }
+      );
   },
 });

@@ -5,12 +5,12 @@ import { FormContainer, CentredTitle, StyledForm } from './MainForm.styled';
 import { Link } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
 
-const MainForm = ({ page, title, name, number, handleSubmit }) => {
+const MainForm = ({ page, title, handleSubmit }) => {
   return (
     <FormContainer>
       <CentredTitle>{title}</CentredTitle>
       <StyledForm onSubmit={handleSubmit}>
-        <TextField label="Name" variant="outlined" type="text" name="name" value={name} />
+        <TextField label="Name" variant="outlined" type="text" name="name" />
         {page === 'registration' && (
           <TextField
             label="Email"
@@ -25,7 +25,6 @@ const MainForm = ({ page, title, name, number, handleSubmit }) => {
             variant="outlined"
             type="tel"
             name="number"
-            value={number}
           />
         ) : (
           <TextField
