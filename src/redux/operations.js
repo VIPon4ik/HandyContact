@@ -4,13 +4,13 @@ import axios from 'axios';
 axios.defaults.baseURL = 'https://connections-api.herokuapp.com/';
 
 export const token = {
-  setToken: (token) => {
+  setToken: token => {
     axios.defaults.headers.common.Authorization = token;
   },
   removeToken: () => {
     axios.defaults.headers.common.Authorization = null;
-  }
-}
+  },
+};
 
 export const signUp = createAsyncThunk(
   'auth/createUser',
@@ -28,11 +28,11 @@ export const signUp = createAsyncThunk(
   }
 );
 
-export const signInByToken = createAsyncThunk(
-  'auth/signInByToken',
-  async (token, thunkAPI) => {
+export const logIn = createAsyncThunk(
+  'auth/logIn',
+  async ({ email, password }, thunkAPI) => {
     try {
-      const response = await axios.get('users/current', token);
+      const response = await axios.post('users/login', { email, password });
       return response.data;
     } catch (e) {
       thunkAPI.rejectWithValue(e.message);
@@ -40,12 +40,21 @@ export const signInByToken = createAsyncThunk(
   }
 );
 
-export const logOut = createAsyncThunk(
-  'auth/logOut',
-  async (_, thunkAPI) => {
+export const logOut = createAsyncThunk('auth/logOut', async (_, thunkAPI) => {
+  try {
+    const response = await axios.post('users/logout');
+    console.log(response);
+    return response.data;
+  } catch (e) {
+    thunkAPI.rejectWithValue(e.message);
+  }
+});
+
+export const signInByToken = createAsyncThunk(
+  'auth/signInByToken',
+  async (token, thunkAPI) => {
     try {
-      const response = await axios.post('users/logout');
-      console.log(response);
+      const response = await axios.get('users/current', token);
       return response.data;
     } catch (e) {
       thunkAPI.rejectWithValue(e.message);
@@ -65,7 +74,7 @@ export const addContact = createAsyncThunk(
       thunkAPI.rejectWithValue(e.message);
     }
   }
-)
+);
 
 export const getContacts = createAsyncThunk(
   'contacts/getContacts',
@@ -77,7 +86,7 @@ export const getContacts = createAsyncThunk(
       thunkAPI.rejectWithValue(e.message);
     }
   }
-)
+);
 
 export const deleteContact = createAsyncThunk(
   'contacts/deleteContact',
@@ -85,11 +94,11 @@ export const deleteContact = createAsyncThunk(
     try {
       const response = await axios.delete(`/contacts/${id}`);
       return response.data;
-    } catch(e) {
+    } catch (e) {
       thunkAPI.rejectWithValue(e.message);
     }
   }
-)
+);
 
 export const editContact = createAsyncThunk(
   'contacts/editContact',
@@ -97,8 +106,8 @@ export const editContact = createAsyncThunk(
     try {
       const response = await axios.patch(`/contacts/${id}`, { name, number });
       return response.data;
-    } catch(e) {
+    } catch (e) {
       thunkAPI.rejectWithValue(e.message);
     }
   }
-)
+);
