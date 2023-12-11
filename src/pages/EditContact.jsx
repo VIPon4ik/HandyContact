@@ -1,10 +1,11 @@
 import React from 'react';
 import MainForm from 'components/MainForm/MainForm';
-import { useLocation, useParams } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 
 const EditContact = () => {
   const { id } = useParams();
   const { state: { name, number }} = useLocation();
+  const navigate = useNavigate();
 
   const handleSubmit = e => {
     e.preventDefault();

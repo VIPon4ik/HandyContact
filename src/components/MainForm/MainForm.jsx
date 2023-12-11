@@ -5,7 +5,7 @@ import { FormContainer, CentredTitle, StyledForm } from './MainForm.styled';
 import { Link } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
 
-const MainForm = ({ page, title, name = '', number = '', handleSubmit }) => {
+const MainForm = ({ page, title, name, number, handleSubmit }) => {
   return (
     <FormContainer>
       <CentredTitle>{title}</CentredTitle>
