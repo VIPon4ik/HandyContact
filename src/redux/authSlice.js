@@ -30,8 +30,6 @@ export const authSlice = createSlice({
       .addCase(signInByToken.rejected, rejectedHandler)
       .addCase(logOut.pending, pendingHandler)
       .addCase(logOut.rejected, rejectedHandler)
-      .addCase(logIn.pending, pendingHandler)
-      .addCase(logIn.rejected, rejectedHandler)
 
       .addCase(signUp.fulfilled, (state, action) => {
         state.name = action.payload.user.name;
@@ -57,6 +55,7 @@ export const authSlice = createSlice({
         state.token = null;
       })
       .addCase(logIn.fulfilled, (state, action) => {
+        console.log(action)
         state.error = null;
         state.isLoading = false;
         state.name = action.payload.user.name;

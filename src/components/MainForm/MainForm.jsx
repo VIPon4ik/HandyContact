@@ -78,6 +78,7 @@ const MainForm = ({ page, title, handleSubmit }) => {
               {...register('password', {
                 required: 'This field is required',
                 minLength: { value: 8, message: 'Min length is 8' },
+                maxLength: { value: 36, message: 'Max length is 36' },
               })}
             />
             <ErrorMessage>{errors.password?.message}</ErrorMessage>
