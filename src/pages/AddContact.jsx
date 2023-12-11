@@ -6,17 +6,14 @@ import { useDispatch } from 'react-redux';
 const AddContact = () => {
   const dispatch = useDispatch();
 
-  const handleSubmit = e => {
-    e.preventDefault();
-
-    const name = e.currentTarget.elements.name.value;
-    const number = e.currentTarget.elements.number.value;
-
+  const handleSubmit = data => {
+    const name = data.name;
+    const number = data.number;
     dispatch(addContact({ name, number }));
+  };
 
-    e.currentTarget.reset();
-  }
-
-  return <MainForm page="contacts" title="Add contact" handleSubmit={handleSubmit} />;
+  return (
+    <MainForm page="contacts" title="Add contact" handleSubmit={handleSubmit} />
+  );
 };
 export default AddContact;
