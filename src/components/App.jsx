@@ -8,6 +8,8 @@ import {
   getContacts,
 } from '../redux/operations';
 import Layout from './Layout/Layout';
+import PrivateRoutes from './PrivateRoute/PrivateRoute';
+import PublicRoutes from './PublicRoute/PublicRoute';
 const Registration = lazy(() => import('pages/Registration'));
 const Home = lazy(() => import('pages/Home'));
 const Login = lazy(() => import('pages/Login'));
@@ -33,13 +35,17 @@ export const App = () => {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
-        <Route path="login" element={<Login />} />
-        <Route path="registration" element={<Registration />} />
-        <Route path="logout" element={<Logout />} />
-        <Route path="contacts" element={<Contacts />} />
-        <Route path="contacts/add-contact" element={<AddContact />} />
-        <Route path="contacts/edit-contact/:id" element={<EditContact />} />
         <Route path="*" element={<p>Not found</p>} />
+        <Route element={<PrivateRoutes />}>
+          <Route path="logout" element={<Logout />} />
+          <Route path="contacts" element={<Contacts />} />
+          <Route path="contacts/add-contact" element={<AddContact />} />
+          <Route path="contacts/edit-contact/:id" element={<EditContact />} />
+        </Route>
+        <Route element={<PublicRoutes restricted />}>
+          <Route path="login" element={<Login />} />
+          <Route path="registration" element={<Registration />} />
+        </Route>
       </Route>
     </Routes>
   );
