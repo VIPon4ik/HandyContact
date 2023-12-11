@@ -1,8 +1,13 @@
 import React, { useEffect } from 'react';
 import { TextField } from '@mui/material';
 import { Button } from '@mui/material';
-import { FormContainer, CentredTitle, StyledForm } from './MainForm.styled';
-import { Link } from '@mui/material';
+import {
+  FormContainer,
+  CentredTitle,
+  StyledForm,
+  ErrorMessage,
+  StyledLink
+} from './MainForm.styled';
 import { Link as RouterLink } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 
@@ -36,51 +41,60 @@ const MainForm = ({ page, title, handleSubmit }) => {
                 maxLength: { value: 36, message: 'Max length is 36' },
               })}
             />
-            <p>{errors.name?.message}</p>
+            <ErrorMessage>{errors.name?.message}</ErrorMessage>
           </>
         )}
         {(page === 'registration' || page === 'login') && (
-          <TextField
-            label="Email"
-            variant="outlined"
-            type="email"
-            {...register('email', {
-              required: 'This field is required',
-            })}
-          />
+          <>
+            <TextField
+              label="Email"
+              variant="outlined"
+              type="email"
+              {...register('email', {
+                required: 'This field is required',
+              })}
+            />
+            <ErrorMessage>{errors.email?.message}</ErrorMessage>
+          </>
         )}
         {page === 'contacts' ? (
-          <TextField
-            label="Number"
-            variant="outlined"
-            type="tel"
-            {...register('number', {
-              required: 'This field is required',
-            })}
-          />
+          <>
+            <TextField
+              label="Number"
+              variant="outlined"
+              type="tel"
+              {...register('number', {
+                required: 'This field is required',
+              })}
+            />
+            <ErrorMessage>{errors.number?.message}</ErrorMessage>
+          </>
         ) : (
-          <TextField
-            label="Password"
-            variant="outlined"
-            type="password"
-            {...register('password', {
-              required: 'This field is required',
-              minLength: { value: 8, message: 'Min length is 8' },
-            })}
-          />
+          <>
+            <TextField
+              label="Password"
+              variant="outlined"
+              type="password"
+              {...register('password', {
+                required: 'This field is required',
+                minLength: { value: 8, message: 'Min length is 8' },
+              })}
+            />
+            <ErrorMessage>{errors.password?.message}</ErrorMessage>
+          </>
         )}
         <Button variant="contained" type="submit" size="large">
           Confirm
         </Button>
         {page !== 'contacts' &&
           (page === 'login' ? (
-            <Link component={RouterLink} to={`/registration`}>
+            <StyledLink component={RouterLink} to={`/registration`}>
               Don't have an account? Sign up
-            </Link>
+            </StyledLink>
           ) : (
-            <Link component={RouterLink} to={`/login`}>
+            <StyledLink component={RouterLink} to={`/login`}>
               Have an account? Sign in
-            </Link>
+            </StyledLink>
           ))}
       </StyledForm>
     </FormContainer>

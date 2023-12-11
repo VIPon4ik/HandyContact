@@ -42,9 +42,9 @@ export const App = () => {
           <Route path="contacts/add-contact" element={<AddContact />} />
           <Route path="contacts/edit-contact/:id" element={<EditContact />} />
         </Route>
-        <Route element={<PublicRoutes restricted />}>
           <Route path="login" element={<Login />} />
           <Route path="registration" element={<Registration />} />
+        <Route element={<PublicRoutes restricted />}>
         </Route>
       </Route>
     </Routes>

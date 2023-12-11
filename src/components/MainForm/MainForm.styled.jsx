@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { Link } from '@mui/material';
 
 export const FormContainer = styled.div`
   min-width: 280px;
@@ -13,7 +14,6 @@ export const FormContainer = styled.div`
 export const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
-  gap: 20px;
 `
 
 export const CentredTitle = styled.h1`
@@ -21,4 +21,13 @@ export const CentredTitle = styled.h1`
   margin-bottom: 20px;
   text-transform: capitalize;
   color: rgb(67, 77, 91);
+`
+
+export const ErrorMessage = styled.p`
+  margin: 10px 0;
+  color: tomato;
+`
+
+export const StyledLink = styled(Link)`
+  margin-top:20px;
 `
