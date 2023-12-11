@@ -6,7 +6,8 @@ import { signInByToken, token as authToken, getContacts } from '../redux/operati
 import Layout from './Layout/Layout';
 import Registration from 'pages/Registration';
 import Home from 'pages/Home';
-import Login from 'pages/Login/Login';
+import Login from 'pages/Login';
+import Logout from 'pages/Logout';
 import Contacts from 'pages/Contacts';
 import AddContact from 'pages/AddContact';
 import EditContact from 'pages/EditContact';
@@ -29,7 +30,7 @@ export const App = () => {
         <Route index element={<Home />} />
         <Route path="login" element={<Login />} />
         <Route path="registration" element={<Registration />} />
-        <Route path="logout" element={<p>Log Out</p>} />
+        <Route path="logout" element={<Logout />} />
         <Route path="contacts" element={<Contacts />} />
         <Route path="contacts/add-contact" element={<AddContact />} />
         <Route path="contacts/edit-contact/:id" element={<EditContact />} />
