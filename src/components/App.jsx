@@ -1,16 +1,20 @@
 import { Route, Routes } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
+import { useEffect, lazy } from 'react';
 import { selectToken } from '../redux/selectors';
-import { signInByToken, token as authToken, getContacts } from '../redux/operations';
+import {
+  signInByToken,
+  token as authToken,
+  getContacts,
+} from '../redux/operations';
 import Layout from './Layout/Layout';
-import Registration from 'pages/Registration';
 import Home from 'pages/Home';
 import Login from 'pages/Login';
 import Logout from 'pages/Logout';
 import Contacts from 'pages/Contacts';
 import AddContact from 'pages/AddContact';
 import EditContact from 'pages/EditContact';
+const Registration = lazy(() => import('pages/Registration'));
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -22,7 +26,7 @@ export const App = () => {
       dispatch(signInByToken(token));
       dispatch(getContacts());
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch]);
 
   return (

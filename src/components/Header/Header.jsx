@@ -5,12 +5,12 @@ import { Button } from '@mui/material';
 import AuthMenu from 'components/AuthMenu/AuthMenu';
 import UserMenu from 'components/UserMenu/UserMenu';
 import { useSelector } from 'react-redux';
-import { selectIsLoading, selectIsLogged, selectName } from '../../redux/selectors';
+import { selectAuthIsLoading, selectIsLogged, selectName } from '../../redux/selectors';
 
 const Header = () => {
   const name = useSelector(selectName);
   const isLogged = useSelector(selectIsLogged);
-  const isLoading = useSelector(selectIsLoading);
+  const isLoading = useSelector(selectAuthIsLoading);
 
   return (
     <HeaderContainer>
