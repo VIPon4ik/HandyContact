@@ -20,7 +20,7 @@ export const App = () => {
       dispatch(signInByToken(token));
       dispatch(getContacts());
     }
-  }, []);
+  }, [dispatch]);
 
   return (
     <Routes>

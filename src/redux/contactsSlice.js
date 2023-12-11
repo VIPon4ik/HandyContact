@@ -1,13 +1,27 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getContacts } from "./operations";
+import { getContacts, deleteContact } from "./operations";
+
+const pendingHandler = (state, action) => {
+  state.isLoading = true;
+}
+
+const rejectedHandler = (state, action) => {
+  state.isLoading = false;
+  state.error = action.payload;
+}
 
 export const contactsSlice = createSlice({
   name: 'contacts',
-  initialState: [],
+  initialState: {
+    items: [],
+    isLoading: false,
+    error: null,
+  },
   extraReducers: builder => {
     builder
     .addCase(getContacts.fulfilled, (state, action) => {
-      return state.concat(action.payload);
+      state.items = [...action.payload];
     })
+    .addCase(deleteContact.fulfilled)
   }
 })
