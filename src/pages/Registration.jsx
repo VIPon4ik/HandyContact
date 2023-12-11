@@ -6,15 +6,12 @@ import { signUp } from '../redux/operations';
 const Registration = () => {
   const dispatch = useDispatch();
 
-  const handleSubmit = e => {
-    e.preventDefault();
-
-    const name = e.currentTarget.elements.name.value;
-    const email = e.currentTarget.elements.email.value;
-    const password = e.currentTarget.elements.password.value;
+  const handleSubmit = data => {
+    const name = data.name;
+    const email = data.email;
+    const password = data.password;
 
     dispatch(signUp({ name, email, password }));
-    e.currentTarget.reset();
   }
 
   return <MainForm page="registration" title='Sign up' handleSubmit={handleSubmit} />;

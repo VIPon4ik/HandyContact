@@ -6,11 +6,9 @@ import { logIn } from '../redux/operations';
 const Login = () => {
   const dispatch = useDispatch();
 
-  const handleSubmit = e => {
-    e.preventDefault();
-
-    const email = e.currentTarget.elements.email.value;
-    const password = e.currentTarget.elements.password.value;
+  const handleSubmit = data => {
+    const email = data.email;
+    const password = data.password;
 
     dispatch(logIn({ email, password }));
   };

@@ -9,11 +9,9 @@ const EditContact = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const handleSubmit = e => {
-    e.preventDefault();
-
-    const name = e.currentTarget.elements.name.value;
-    const number = e.currentTarget.elements.number.value;
+  const handleSubmit = data => {
+    const name = data.name;
+    const number = data.number;
 
     dispatch(editContact({ id, name, number }))
     navigate('/contacts');
