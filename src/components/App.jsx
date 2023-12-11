@@ -8,13 +8,13 @@ import {
   getContacts,
 } from '../redux/operations';
 import Layout from './Layout/Layout';
-import Home from 'pages/Home';
-import Login from 'pages/Login';
-import Logout from 'pages/Logout';
-import Contacts from 'pages/Contacts';
-import AddContact from 'pages/AddContact';
-import EditContact from 'pages/EditContact';
 const Registration = lazy(() => import('pages/Registration'));
+const Home = lazy(() => import('pages/Home'));
+const Login = lazy(() => import('pages/Login'));
+const Logout = lazy(() => import('pages/Logout'));
+const Contacts = lazy(() => import('pages/Contacts'));
+const AddContact = lazy(() => import('pages/AddContact'));
+const EditContact = lazy(() => import('pages/EditContact'));
 
 export const App = () => {
   const dispatch = useDispatch();
