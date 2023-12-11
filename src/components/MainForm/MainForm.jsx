@@ -10,7 +10,7 @@ const MainForm = ({ page, title, name = '', number = '', handleSubmit }) => {
     <FormContainer>
       <CentredTitle>{title}</CentredTitle>
       <StyledForm onSubmit={handleSubmit}>
-        <TextField label="Name" variant="outlined" type="text" name="name" />
+        <TextField label="Name" variant="outlined" type="text" name="name" value={name} />
         {page === 'registration' && (
           <TextField
             label="Email"
@@ -25,6 +25,7 @@ const MainForm = ({ page, title, name = '', number = '', handleSubmit }) => {
             variant="outlined"
             type="tel"
             name="number"
+            value={number}
           />
         ) : (
           <TextField
