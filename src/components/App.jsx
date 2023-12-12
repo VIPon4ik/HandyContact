@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, lazy } from 'react';
-import { selectToken } from '../redux/selectors';
+import { selectAuthIsLoading, selectToken } from '../redux/selectors';
 import {
   signInByToken,
   token as authToken,
@@ -21,6 +21,8 @@ const EditContact = lazy(() => import('pages/EditContact'));
 export const App = () => {
   const dispatch = useDispatch();
   const token = useSelector(selectToken);
+  const isLoading = useSelector(selectAuthIsLoading);
+  console.log('isLoading: ', isLoading);
 
   useEffect(() => {
     if (token) {
@@ -34,18 +36,25 @@ export const App = () => {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route index element={<Home />} />
-        <Route path="*" element={<p>Not found</p>} />
-        <Route element={<PrivateRoutes />}>
-          <Route path="logout" element={<Logout />} />
-          <Route path="contacts" element={<Contacts />} />
-          <Route path="contacts/add-contact" element={<AddContact />} />
-          <Route path="contacts/edit-contact/:id" element={<EditContact />} />
-        </Route>
-          <Route path="login" element={<Login />} />
-          <Route path="registration" element={<Registration />} />
-        <Route element={<PublicRoutes restricted />}>
-        </Route>
+        {!isLoading && (
+          <>
+            <Route index element={<Home />} />
+            <Route path="*" element={<p>Not found</p>} />
+            <Route element={<PrivateRoutes />}>
+              <Route path="logout" element={<Logout />} />
+              <Route path="contacts" element={<Contacts />} />
+              <Route path="contacts/add-contact" element={<AddContact />} />
+              <Route
+                path="contacts/edit-contact/:id"
+                element={<EditContact />}
+              />
+            </Route>
+            <Route element={<PublicRoutes restricted />}>
+              <Route path="login" element={<Login />} />
+              <Route path="registration" element={<Registration />} />
+            </Route>
+          </>
+        )}
       </Route>
     </Routes>
   );

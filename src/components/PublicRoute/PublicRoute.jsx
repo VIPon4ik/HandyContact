@@ -5,7 +5,7 @@ import { selectIsLogged } from '../../redux/selectors';
 
 const PublicRoutes = ({ restricted = false }) => {
   const isLogged = useSelector(selectIsLogged);
-  return isLogged && restricted ? <Outlet /> : <Navigate to="/" />;
+  return isLogged && restricted ? <Navigate to="/" /> : <Outlet />;
 };
 
 export default PublicRoutes;

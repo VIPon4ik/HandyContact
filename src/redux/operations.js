@@ -24,7 +24,7 @@ export const signUp = createAsyncThunk(
       });
       return response.data;
     } catch (e) {
-      thunkAPI.rejectWithValue(e.message);
+      return thunkAPI.rejectWithValue(e.message);
     }
   }
 );
@@ -37,7 +37,7 @@ export const logIn = createAsyncThunk(
       return response.data;
     } catch (e) {
       toast.error('Incorrect email or password')
-      thunkAPI.rejectWithValue(e.message);
+      return thunkAPI.rejectWithValue(e.message);
     }
   }
 );
@@ -45,10 +45,9 @@ export const logIn = createAsyncThunk(
 export const logOut = createAsyncThunk('auth/logOut', async (_, thunkAPI) => {
   try {
     const response = await axios.post('users/logout');
-    console.log(response);
     return response.data;
   } catch (e) {
-    thunkAPI.rejectWithValue(e.message);
+    return thunkAPI.rejectWithValue(e.message);
   }
 });
 
@@ -59,7 +58,7 @@ export const signInByToken = createAsyncThunk(
       const response = await axios.get('users/current', token);
       return response.data;
     } catch (e) {
-      thunkAPI.rejectWithValue(e.message);
+      return thunkAPI.rejectWithValue(e.message);
     }
   }
 );
@@ -73,7 +72,7 @@ export const addContact = createAsyncThunk(
       const response = await axios.post('/contacts', { name, number });
       return response.data;
     } catch (e) {
-      thunkAPI.rejectWithValue(e.message);
+      return thunkAPI.rejectWithValue(e.message);
     }
   }
 );
@@ -85,7 +84,7 @@ export const getContacts = createAsyncThunk(
       const response = await axios.get('/contacts');
       return response.data;
     } catch (e) {
-      thunkAPI.rejectWithValue(e.message);
+      return thunkAPI.rejectWithValue(e.message);
     }
   }
 );
@@ -97,7 +96,7 @@ export const deleteContact = createAsyncThunk(
       const response = await axios.delete(`/contacts/${id}`);
       return response.data;
     } catch (e) {
-      thunkAPI.rejectWithValue(e.message);
+      return thunkAPI.rejectWithValue(e.message);
     }
   }
 );
@@ -109,7 +108,7 @@ export const editContact = createAsyncThunk(
       const response = await axios.patch(`/contacts/${id}`, { name, number });
       return response.data;
     } catch (e) {
-      thunkAPI.rejectWithValue(e.message);
+      return thunkAPI.rejectWithValue(e.message);
     }
   }
 );
