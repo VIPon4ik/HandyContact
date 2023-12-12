@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect, lazy } from 'react';
+import { useEffect, useState, lazy } from 'react';
 import { selectAuthIsLoading, selectToken } from '../redux/selectors';
 import {
   signInByToken,
@@ -22,32 +22,47 @@ const PageNotFound = lazy(() => import('pages/PageNotFound'));
 export const App = () => {
   const dispatch = useDispatch();
   const token = useSelector(selectToken);
-  const isLoading = useSelector(selectAuthIsLoading);
+  const [isLoading, setIsLoading] = useState(true);
+  console.log('App IsLoading: ', isLoading);
 
   useEffect(() => {
-    if (token) {
-      authToken.setToken(token);
-      dispatch(signInByToken(token));
-      dispatch(getContacts());
+    const fetchUserData = async () => {
+      if (token) {
+        authToken.setToken(token);
+        await dispatch(signInByToken(token));
+        await dispatch(getContacts());
+      }
+  
+      setIsLoading(false);
     }
+
+    fetchUserData();
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch]);
 
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route index element={<Home />} />
-        <Route path="*" element={<PageNotFound />} />
-        <Route element={<PrivateRoutes />}>
-          <Route path="logout" element={<Logout />} />
-          <Route path="contacts" element={<Contacts />} />
-          <Route path="contacts/add-contact" element={<AddContact />} />
-          <Route path="contacts/edit-contact/:id" element={<EditContact />} />
-        </Route>
-        <Route element={<PublicRoutes restricted />}>
-          <Route path="login" element={<Login />} />
-          <Route path="registration" element={<Registration />} />
-        </Route>
+        {!isLoading && (
+          <>
+            <Route index element={<Home />} />
+            <Route path="*" element={<PageNotFound />} />
+            <Route element={<PrivateRoutes />}>
+              <Route path="logout" element={<Logout />} />
+              <Route path="contacts" element={<Contacts />} />
+              <Route path="contacts/add-contact" element={<AddContact />} />
+              <Route
+                path="contacts/edit-contact/:id"
+                element={<EditContact />}
+              />
+            </Route>
+            <Route element={<PublicRoutes restricted />}>
+              <Route path="login" element={<Login />} />
+              <Route path="registration" element={<Registration />} />
+            </Route>
+          </>
+        )}
       </Route>
     </Routes>
   );
