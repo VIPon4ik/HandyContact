@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { logOut } from '../redux/operations';
-import { token } from '../redux/operations';
+import { token as authToken } from '../redux/operations';
 
 const Logout = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    token.removeToken();
     dispatch(logOut());
+    authToken.removeToken();
   }, [dispatch]);
   return <></>;
 };

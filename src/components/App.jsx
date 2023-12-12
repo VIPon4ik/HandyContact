@@ -10,6 +10,7 @@ import {
 import Layout from './Layout/Layout';
 import PrivateRoutes from './PrivateRoute/PrivateRoute';
 import PublicRoutes from './PublicRoute/PublicRoute';
+import Loader from './Loader/Loader';
 const Registration = lazy(() => import('pages/Registration'));
 const Home = lazy(() => import('pages/Home'));
 const Login = lazy(() => import('pages/Login'));
@@ -23,7 +24,6 @@ export const App = () => {
   const dispatch = useDispatch();
   const token = useSelector(selectToken);
   const isLoading = useSelector(selectAuthIsLoading);
-  console.log('isLoading: ', isLoading);
 
   useEffect(() => {
     if (token) {
@@ -37,25 +37,18 @@ export const App = () => {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-        {!isLoading && (
-          <>
-            <Route index element={<Home />} />
-            <Route path="*" element={<PageNotFound />} />
-            <Route element={<PrivateRoutes />}>
-              <Route path="logout" element={<Logout />} />
-              <Route path="contacts" element={<Contacts />} />
-              <Route path="contacts/add-contact" element={<AddContact />} />
-              <Route
-                path="contacts/edit-contact/:id"
-                element={<EditContact />}
-              />
-            </Route>
-            <Route element={<PublicRoutes restricted />}>
-              <Route path="login" element={<Login />} />
-              <Route path="registration" element={<Registration />} />
-            </Route>
-          </>
-        )}
+        <Route index element={<Home />} />
+        <Route path="*" element={<PageNotFound />} />
+        <Route element={<PrivateRoutes />}>
+          <Route path="logout" element={<Logout />} />
+          <Route path="contacts" element={<Contacts />} />
+          <Route path="contacts/add-contact" element={<AddContact />} />
+          <Route path="contacts/edit-contact/:id" element={<EditContact />} />
+        </Route>
+        <Route element={<PublicRoutes restricted />}>
+          <Route path="login" element={<Login />} />
+          <Route path="registration" element={<Registration />} />
+        </Route>
       </Route>
     </Routes>
   );

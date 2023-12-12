@@ -1,12 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { signUp, signInByToken, logOut, logIn } from './operations';
+import { token } from './operations';
 
 const initialState = {
   name: null,
   email: null,
   token: null,
   isLogged: false,
-  isLoading: true,
+  isLoading: false,
   error: null,
 };
 
@@ -63,6 +64,8 @@ export const authSlice = createSlice({
         state.email = action.payload.user.email;
         state.token = action.payload.token;
         state.isLogged = true;
+
+        token.setToken(action.payload.token);
       })
   },
 });
