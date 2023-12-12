@@ -17,6 +17,7 @@ const Logout = lazy(() => import('pages/Logout'));
 const Contacts = lazy(() => import('pages/Contacts'));
 const AddContact = lazy(() => import('pages/AddContact'));
 const EditContact = lazy(() => import('pages/EditContact'));
+const PageNotFound = lazy(() => import('pages/PageNotFound'));
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -39,7 +40,7 @@ export const App = () => {
         {!isLoading && (
           <>
             <Route index element={<Home />} />
-            <Route path="*" element={<p>Not found</p>} />
+            <Route path="*" element={<PageNotFound />} />
             <Route element={<PrivateRoutes />}>
               <Route path="logout" element={<Logout />} />
               <Route path="contacts" element={<Contacts />} />
