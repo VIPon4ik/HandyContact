@@ -24,6 +24,7 @@ export const signUp = createAsyncThunk(
       });
       return response.data;
     } catch (e) {
+      toast.error('A user with this email already exists')
       return thunkAPI.rejectWithValue(e.message);
     }
   }

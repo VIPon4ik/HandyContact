@@ -10,7 +10,6 @@ import {
 import Layout from './Layout/Layout';
 import PrivateRoutes from './PrivateRoute/PrivateRoute';
 import PublicRoutes from './PublicRoute/PublicRoute';
-import Loader from './Loader/Loader';
 const Registration = lazy(() => import('pages/Registration'));
 const Home = lazy(() => import('pages/Home'));
 const Login = lazy(() => import('pages/Login'));
