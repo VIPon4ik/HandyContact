@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/364.dbe8b70e.chunk.js","mappings":"yKAMA,UAJqB,WACnB,OAAOA,EAAAA,EAAAA,KAAA,KAAAC,SAAG,kBACZ,C","sources":["pages/PageNotFound.jsx"],"sourcesContent":["import React from 'react';\n\nconst PageNotFound = () => {\n  return <p>Page not Found</p>;\n};\n\nexport default PageNotFound;\n"],"names":["_jsx","children"],"sourceRoot":""}
