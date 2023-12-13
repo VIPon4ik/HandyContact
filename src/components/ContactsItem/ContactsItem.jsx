@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import Modal from 'components/Modal/Modal';
 import DeleteForm from 'components/DeleteForm/DeleteForm';
-import { Link } from 'react-router-dom';
-import { ContactsItemContainer } from './ContactsItem.styled';
+import { ContactsItemContainer, ContactInfoContainer, ContactTitle, ContactButtonContainer } from './ContactsItem.styled';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import { Button } from '@mui/material';
 
 const ContactsItem = ({ name, number, ID }) => {
   const [show, setShow] = useState(false);
@@ -11,18 +12,21 @@ const ContactsItem = ({ name, number, ID }) => {
 
   return (
     <ContactsItemContainer>
-      <div>
-        <h1>{name}</h1>
-        <p>{number}</p>
-      </div>
-      <div>
-        <button type="click" onClick={showModal}>
+      <ContactInfoContainer>
+        <AccountCircleIcon style={{fontSize: 60}} />
+        <div>
+          <ContactTitle>{name}</ContactTitle>
+          <p>{number}</p>
+        </div>
+      </ContactInfoContainer>
+      <ContactButtonContainer>
+        <Button variant='contained' type="click" onClick={showModal}>
           Delete
-        </button>
-        <Link to={`edit-contact/${ID}`} state={{ name, number }}>
+        </Button>
+        <Button variant='outlined'>
           Edit
-        </Link>
-      </div>
+        </Button>
+      </ContactButtonContainer>
       {show && (
         <Modal>
           <DeleteForm setShow={setShow} name={name} ID={ID} />

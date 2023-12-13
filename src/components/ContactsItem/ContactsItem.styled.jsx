@@ -12,3 +12,22 @@ export const ContactsItemContainer = styled.li`
   border-radius: 4px;
   box-shadow: 1px 1px 2px 1px rgba(0,0,0,0.2);
 `
+
+export const ContactInfoContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+`
+
+export const ContactTitle = styled.h1`
+  font-size: 24px;
+  margin-bottom: 4px;
+  max-width: 300px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+`
+
+export const ContactButtonContainer = styled.div`
+  display: flex;
+  gap: 10px;
+`
