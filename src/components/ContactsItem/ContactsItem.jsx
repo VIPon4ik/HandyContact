@@ -1,36 +1,49 @@
 import React, { useState } from 'react';
 import Modal from 'components/Modal/Modal';
 import DeleteForm from 'components/DeleteForm/DeleteForm';
-import { ContactsItemContainer, ContactInfoContainer, ContactTitle, ContactButtonContainer } from './ContactsItem.styled';
+import {
+  ContactsItemContainer,
+  ContactInfoContainer,
+  ContactTitle,
+  ContactButtonContainer,
+} from './ContactsItem.styled';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import EditIcon from '@mui/icons-material/Edit';
 import { Button } from '@mui/material';
+import EditContact from 'components/EditContactForm/EditContact';
 
 const ContactsItem = ({ name, number, ID }) => {
-  const [show, setShow] = useState(false);
+  const [showDelete, setShowDelete] = useState(false);
+  const [showEdit, setShowEdit] = useState(false);
 
-  const showModal = () => setShow(state => !state);
+  const showEditModal = () => setShowEdit(state => !state);
+  const showDeleteModal = () => setShowDelete(state => !state);
 
   return (
     <ContactsItemContainer>
       <ContactInfoContainer>
-        <AccountCircleIcon style={{fontSize: 60}} />
+        <AccountCircleIcon style={{ fontSize: 60 }} />
         <div>
           <ContactTitle>{name}</ContactTitle>
           <p>{number}</p>
         </div>
       </ContactInfoContainer>
       <ContactButtonContainer>
-        <Button variant='contained' type="click" onClick={showModal}>
+        <Button variant="contained" type="click" onClick={showDeleteModal}>
           Delete
         </Button>
-        <Button variant='outlined'>
-          Edit <EditIcon style={{fontSize: 16, marginLeft:2}}/> 
+        <Button variant="outlined" onClick={showEditModal}>
+          Edit <EditIcon style={{ fontSize: 16, marginLeft: 2 }} />
         </Button>
       </ContactButtonContainer>
-      {show && (
+      {showDelete && (
         <Modal>
-          <DeleteForm setShow={setShow} name={name} ID={ID} />
+          <DeleteForm setShow={showDeleteModal} name={name} ID={ID} />
+        </Modal>
+      )}
+      {showEdit && (
+        <Modal>
+          <EditContact name={name} number={number} setShow={showEditModal} id={ID} />
         </Modal>
       )}
     </ContactsItemContainer>

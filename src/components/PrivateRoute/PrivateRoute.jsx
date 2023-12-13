@@ -5,7 +5,6 @@ import { selectIsLogged } from '../../redux/selectors';
 
 const PrivateRoutes = () => {
   const isLogged = useSelector(selectIsLogged);
-  console.log('Private islogged: ', isLogged);
   return isLogged ? <Outlet /> : <Navigate to="/login" />;
 };
 

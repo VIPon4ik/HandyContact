@@ -16,14 +16,12 @@ const Login = lazy(() => import('pages/Login'));
 const Logout = lazy(() => import('pages/Logout'));
 const Contacts = lazy(() => import('pages/Contacts/Contacts'));
 const AddContact = lazy(() => import('pages/AddContact'));
-const EditContact = lazy(() => import('pages/EditContact'));
 const PageNotFound = lazy(() => import('pages/PageNotFound'));
 
 export const App = () => {
   const dispatch = useDispatch();
   const token = useSelector(selectToken);
   const [isLoading, setIsLoading] = useState(true);
-  console.log('App IsLoading: ', isLoading);
 
   const fetchUserData = async () => {
     if (token) {
@@ -52,10 +50,6 @@ export const App = () => {
               <Route path="logout" element={<Logout />} />
               <Route path="contacts" element={<Contacts />} />
               <Route path="contacts/add-contact" element={<AddContact />} />
-              <Route
-                path="contacts/edit-contact/:id"
-                element={<EditContact />}
-              />
             </Route>
             <Route element={<PublicRoutes restricted />}>
               <Route path="login" element={<Login />} />

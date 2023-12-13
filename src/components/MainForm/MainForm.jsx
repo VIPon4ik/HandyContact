@@ -25,12 +25,25 @@ const getFieldType = (field) => {
   }
 }
 
+const getDefaultValue = (type, defaultName, defaultNumber) => {
+  switch (type) {
+    case 'text':
+      return defaultName;
+    case 'tel':
+      return defaultNumber;
+    default:
+      return '';
+  }
+}
+
 const MainForm = ({
   title,
   handleSubmit,
   validationSchema,
   redirectUrl,
   redirectMessage,
+  defaultName = '',
+  defaultNumber = '',
 }) => {
   const {
     register,
@@ -52,12 +65,14 @@ const MainForm = ({
       <CentredTitle>{title}</CentredTitle>
       <StyledForm onSubmit={handleFormSubmit(handleSubmit)}>
         {fields.map((field, index) => {
+          const type = getFieldType(field);
           return (
             <>
-              <TextField type={getFieldType(field)}
+              <TextField type={type}
                 label={`${field.charAt(0).toUpperCase() + field.slice(1)}`}
                 variant="outlined"
                 {...register(field)}
+                defaultValue={getDefaultValue(type, defaultName, defaultNumber)}
               />
               <ErrorMessage>{errors[field]?.message}</ErrorMessage>
             </>

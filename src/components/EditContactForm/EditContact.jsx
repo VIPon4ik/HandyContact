@@ -1,10 +1,11 @@
 import React from 'react';
 import MainForm from 'components/MainForm/MainForm';
-import { useNavigate, useParams } from 'react-router-dom';
-import { editContact } from '../redux/operations';
+import { editContact } from '../../redux/operations';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectContactsIsLoading } from '../redux/selectors';
+import { selectContactsIsLoading } from '../../redux/selectors';
 import Loader from 'components/Loader/Loader';
+import CloseIcon from '@mui/icons-material/Close';
+import { CloseButton } from './EditContact.styled';
 import * as yup from 'yup';
 
 const schema = yup.object({
@@ -12,9 +13,7 @@ const schema = yup.object({
   number: yup.string().min(8).max(14).required(),
 });
 
-const EditContact = () => {
-  const { id } = useParams();
-  const navigate = useNavigate();
+const EditContact = ({ name, number, id, setShow }) => {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectContactsIsLoading);
 
@@ -23,17 +22,20 @@ const EditContact = () => {
     const number = data.number;
 
     dispatch(editContact({ id, name, number }));
-    navigate('/contacts');
+    setShow();
   };
   return (
-    <>
+    <div style={{ position: 'relative' }}>
       {isLoading && <Loader />}
       <MainForm
         title="Edit contact"
         handleSubmit={handleSubmit}
         validationSchema={schema}
+        defaultName={name}
+        defaultNumber={number}
       />
-    </>
+      <CloseButton type='button' onClick={setShow}><CloseIcon /></CloseButton>
+    </div>
   );
 };
 
