@@ -12,6 +12,19 @@ import { Link as RouterLink } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 
+const getFieldType = (field) => {
+  switch (field) {
+    case 'password':
+      return 'password';
+    case 'email':
+      return 'email';
+    case 'number':
+      return 'tel';
+    default:
+      return 'text';
+  }
+}
+
 const MainForm = ({
   title,
   handleSubmit,
@@ -41,7 +54,7 @@ const MainForm = ({
         {fields.map((field, index) => {
           return (
             <>
-              <TextField
+              <TextField type={getFieldType(field)}
                 label={`${field.charAt(0).toUpperCase() + field.slice(1)}`}
                 variant="outlined"
                 {...register(field)}

@@ -7,8 +7,8 @@ import Loader from 'components/Loader/Loader';
 import * as yup from 'yup';
 
 const schema = yup.object({
-  email: yup.string().email().required(),
-  password: yup.string().required(),
+  email: yup.string().email().max(36).required(),
+  password: yup.string().min(8).max(36).required(),
 });
 
 const Login = () => {
@@ -26,7 +26,6 @@ const Login = () => {
     <>
       {isLoading && <Loader />}
       <MainForm
-        page="login"
         title="Sign in"
         handleSubmit={handleSubmit}
         validationSchema={schema}

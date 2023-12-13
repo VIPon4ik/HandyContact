@@ -5,6 +5,12 @@ import { editContact } from '../redux/operations';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectContactsIsLoading } from '../redux/selectors';
 import Loader from 'components/Loader/Loader';
+import * as yup from 'yup';
+
+const schema = yup.object({
+  name: yup.string().min(2).max(36).required(),
+  number: yup.string().min(8).max(14).required(),
+});
 
 const EditContact = () => {
   const { id } = useParams();
@@ -23,9 +29,9 @@ const EditContact = () => {
     <>
       {isLoading && <Loader />}
       <MainForm
-        page="contacts"
         title="Edit contact"
         handleSubmit={handleSubmit}
+        validationSchema={schema}
       />
     </>
   );

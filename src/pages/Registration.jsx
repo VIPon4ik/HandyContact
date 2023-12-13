@@ -4,6 +4,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { signUp } from '../redux/operations';
 import { selectAuthIsLoading } from '../redux/selectors';
 import Loader from 'components/Loader/Loader';
+import * as yup from 'yup';
+
+const schema = yup.object({
+  name: yup.string().min(2).max(36).required(),
+  email: yup.string().email().max(36).required(),
+  password: yup.string().min(8).max(36).required(),
+});
 
 const Registration = () => {
   const dispatch = useDispatch();
@@ -21,9 +28,11 @@ const Registration = () => {
     <>
       {isLoading && <Loader />}
       <MainForm
-        page="registration"
         title="Sign up"
         handleSubmit={handleSubmit}
+        validationSchema={schema}
+        redirectUrl={'login'}
+        redirectMessage={'Already signed up? Sign in'}
       />
     </>
   );

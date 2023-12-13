@@ -4,6 +4,13 @@ import { addContact } from '../redux/operations';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectContactsIsLoading } from '../redux/selectors';
 import Loader from 'components/Loader/Loader';
+import * as yup from 'yup';
+
+const schema = yup.object({
+  name: yup.string().min(2).max(36).required(),
+  number: yup.string().min(8).max(14).required(),
+});
+
 
 const AddContact = () => {
   const dispatch = useDispatch();
@@ -19,9 +26,9 @@ const AddContact = () => {
     <>
       {isLoading && <Loader />}
       <MainForm
-        page="contacts"
         title="Add contact"
         handleSubmit={handleSubmit}
+        validationSchema={schema}
       />
     </>
   );
