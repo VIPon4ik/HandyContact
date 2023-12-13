@@ -22,9 +22,10 @@ export const ContactInfoContainer = styled.div`
 export const ContactTitle = styled.h1`
   font-size: 24px;
   margin-bottom: 4px;
-  max-width: 300px;
   overflow: hidden;
   text-overflow: ellipsis;
+  width: 28vw;
+  max-width: 300px;
 `
 
 export const ContactButtonContainer = styled.div`

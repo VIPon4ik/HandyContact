@@ -3,6 +3,7 @@ import Modal from 'components/Modal/Modal';
 import DeleteForm from 'components/DeleteForm/DeleteForm';
 import { ContactsItemContainer, ContactInfoContainer, ContactTitle, ContactButtonContainer } from './ContactsItem.styled';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import EditIcon from '@mui/icons-material/Edit';
 import { Button } from '@mui/material';
 
 const ContactsItem = ({ name, number, ID }) => {
@@ -24,7 +25,7 @@ const ContactsItem = ({ name, number, ID }) => {
           Delete
         </Button>
         <Button variant='outlined'>
-          Edit
+          Edit <EditIcon style={{fontSize: 16, marginLeft:2}}/> 
         </Button>
       </ContactButtonContainer>
       {show && (

@@ -4,12 +4,13 @@ import background from '../../images/background-image.jpg';
 export const Container = styled.main`
   padding: 0 20px;
   min-width: 320px; 
-  padding-top: 124px;
+  padding-top: 100px;
+  
 
   &::before {
     content: ' ';
     position: absolute;
-    top: 64px;
+    top: 0px;
     left: 0;
     width: 100%;
     min-height: 100vh;
