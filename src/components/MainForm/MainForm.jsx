@@ -6,18 +6,27 @@ import {
   CentredTitle,
   StyledForm,
   ErrorMessage,
-  StyledLink
+  StyledLink,
 } from './MainForm.styled';
 import { Link as RouterLink } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
 
-const MainForm = ({ page, title, handleSubmit }) => {
+const MainForm = ({
+  title,
+  handleSubmit,
+  validationSchema,
+  redirectUrl,
+  redirectMessage,
+}) => {
   const {
     register,
-    formState: { errors, isSubmitSuccessful },
+    formState: { isSubmitSuccessful, errors },
     handleSubmit: handleFormSubmit,
     reset,
-  } = useForm();
+  } = useForm({ resolver: yupResolver(validationSchema) });
+
+  const fields = Object.keys(validationSchema.fields);
 
   useEffect(() => {
     if (isSubmitSuccessful) {
@@ -29,74 +38,26 @@ const MainForm = ({ page, title, handleSubmit }) => {
     <FormContainer>
       <CentredTitle>{title}</CentredTitle>
       <StyledForm onSubmit={handleFormSubmit(handleSubmit)}>
-        {page !== 'login' && (
-          <>
-            <TextField
-              label="Name"
-              variant="outlined"
-              type="text"
-              {...register('name', {
-                required: 'This field is required',
-                minLength: { value: 2, message: 'Min length is 2' },
-                maxLength: { value: 36, message: 'Max length is 36' },
-              })}
-            />
-            <ErrorMessage>{errors.name?.message}</ErrorMessage>
-          </>
-        )}
-        {(page === 'registration' || page === 'login') && (
-          <>
-            <TextField
-              label="Email"
-              variant="outlined"
-              type="email"
-              {...register('email', {
-                required: 'This field is required',
-              })}
-            />
-            <ErrorMessage>{errors.email?.message}</ErrorMessage>
-          </>
-        )}
-        {page === 'contacts' ? (
-          <>
-            <TextField
-              label="Number"
-              variant="outlined"
-              type="tel"
-              {...register('number', {
-                required: 'This field is required',
-              })}
-            />
-            <ErrorMessage>{errors.number?.message}</ErrorMessage>
-          </>
-        ) : (
-          <>
-            <TextField
-              label="Password"
-              variant="outlined"
-              type="password"
-              {...register('password', {
-                required: 'This field is required',
-                minLength: { value: 8, message: 'Min length is 8' },
-                maxLength: { value: 36, message: 'Max length is 36' },
-              })}
-            />
-            <ErrorMessage>{errors.password?.message}</ErrorMessage>
-          </>
-        )}
+        {fields.map((field, index) => {
+          return (
+            <>
+              <TextField
+                label={`${field.charAt(0).toUpperCase() + field.slice(1)}`}
+                variant="outlined"
+                {...register(field)}
+              />
+              <ErrorMessage>{errors[field]?.message}</ErrorMessage>
+            </>
+          );
+        })}
         <Button variant="contained" type="submit" size="large">
           Confirm
         </Button>
-        {page !== 'contacts' &&
-          (page === 'login' ? (
-            <StyledLink component={RouterLink} to={`/registration`}>
-              Don't have an account? Sign up
-            </StyledLink>
-          ) : (
-            <StyledLink component={RouterLink} to={`/login`}>
-              Have an account? Sign in
-            </StyledLink>
-          ))}
+        {redirectMessage && (
+          <StyledLink component={RouterLink} to={`/${redirectUrl}`}>
+            {redirectMessage}
+          </StyledLink>
+        )}
       </StyledForm>
     </FormContainer>
   );
