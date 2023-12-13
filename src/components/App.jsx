@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState, lazy } from 'react';
-import { selectAuthIsLoading, selectToken } from '../redux/selectors';
+import { selectToken } from '../redux/selectors';
 import {
   signInByToken,
   token as authToken,
@@ -25,17 +25,17 @@ export const App = () => {
   const [isLoading, setIsLoading] = useState(true);
   console.log('App IsLoading: ', isLoading);
 
-  useEffect(() => {
-    const fetchUserData = async () => {
-      if (token) {
-        authToken.setToken(token);
-        await dispatch(signInByToken(token));
-        await dispatch(getContacts());
-      }
-  
-      setIsLoading(false);
+  const fetchUserData = async () => {
+    if (token) {
+      authToken.setToken(token);
+      await dispatch(signInByToken(token));
+      await dispatch(getContacts());
     }
 
+    setIsLoading(false);
+  }
+
+  useEffect(() => {
     fetchUserData();
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
