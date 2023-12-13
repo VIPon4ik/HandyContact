@@ -4,7 +4,7 @@ import background from '../../images/background-image.jpg';
 export const Container = styled.main`
   padding: 0 20px;
   min-width: 320px; 
-  padding-top: 124px;
+  padding-top: 40px;
 
   &::before {
     content: ' ';
@@ -13,7 +13,7 @@ export const Container = styled.main`
     left: 0;
     width: 100%;
     height: 100%;
-    max-height: 91vh;
+    max-height: 100vh;
     background-image: url(${background});
     opacity: 0.2;
     background-repeat: no-repeat;

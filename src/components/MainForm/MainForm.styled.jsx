@@ -9,6 +9,7 @@ export const FormContainer = styled.div`
   padding: 40px 20px;
   border-radius: 4px;
   background-color: #fff;
+  margin-top: 120px;
 `;
 
 export const StyledForm = styled.form`
