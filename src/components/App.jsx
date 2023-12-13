@@ -11,7 +11,7 @@ import Layout from './Layout/Layout';
 import PrivateRoutes from './PrivateRoute/PrivateRoute';
 import PublicRoutes from './PublicRoute/PublicRoute';
 const Registration = lazy(() => import('pages/Registration'));
-const Home = lazy(() => import('pages/Home'));
+const Home = lazy(() => import('pages/Home/Home'));
 const Login = lazy(() => import('pages/Login'));
 const Logout = lazy(() => import('pages/Logout'));
 const Contacts = lazy(() => import('pages/Contacts/Contacts'));
