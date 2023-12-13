@@ -2,6 +2,7 @@ import React from 'react';
 import { Button } from '@mui/material';
 import { deleteContact } from '../../redux/operations';
 import { useDispatch } from 'react-redux';
+import { StyledDeleteForm, DeleteFormButtonsContainer, DeleteFormTitle } from './DeleteForm.styled';
 
 const DeleteForm = ({ ID, name, setShow }) => {
   const dispatch = useDispatch();
@@ -20,15 +21,17 @@ const DeleteForm = ({ ID, name, setShow }) => {
   };
 
   return (
-    <form style={{ background: '#fff' }} onSubmit={handleDelete}>
-      <h1>You sure you want to delete {name} contact?</h1>
-      <Button variant="contained" type="click" onClick={handleClose}>
-        Go back
-      </Button>
-      <Button variant="contained" type="submit">
-        Delete
-      </Button>
-    </form>
+    <StyledDeleteForm style={{ background: '#fff' }} onSubmit={handleDelete}>
+      <DeleteFormTitle>You sure you want to delete {name}?</DeleteFormTitle>
+      <DeleteFormButtonsContainer>
+        <Button variant="outlined" type="click" onClick={handleClose}>
+          Go back
+        </Button>
+        <Button variant="contained" type="submit">
+          Delete
+        </Button>
+      </DeleteFormButtonsContainer>
+    </StyledDeleteForm>
   );
 };
 

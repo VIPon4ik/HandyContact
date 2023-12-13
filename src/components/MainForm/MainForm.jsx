@@ -12,7 +12,7 @@ import { Link as RouterLink } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 
-const getFieldType = (field) => {
+const getFieldType = field => {
   switch (field) {
     case 'password':
       return 'password';
@@ -23,7 +23,7 @@ const getFieldType = (field) => {
     default:
       return 'text';
   }
-}
+};
 
 const getDefaultValue = (type, defaultName, defaultNumber) => {
   switch (type) {
@@ -34,7 +34,7 @@ const getDefaultValue = (type, defaultName, defaultNumber) => {
     default:
       return '';
   }
-}
+};
 
 const MainForm = ({
   title,
@@ -68,7 +68,8 @@ const MainForm = ({
           const type = getFieldType(field);
           return (
             <>
-              <TextField type={type}
+              <TextField
+                type={type}
                 label={`${field.charAt(0).toUpperCase() + field.slice(1)}`}
                 variant="outlined"
                 {...register(field)}
