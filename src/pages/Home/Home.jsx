@@ -13,7 +13,7 @@ import {
 const Home = () => {
   return (
     <HomeGridContainer>
-      <HomeLeftSection>
+      {/* <HomeLeftSection>
         <HomeTitle>
           <HomeTitleSpan>HandyContact</HomeTitleSpan> 
           A convenient application
@@ -35,7 +35,7 @@ const Home = () => {
       </HomeLeftSection>
       <HomeRightSection>
         
-      </HomeRightSection>
+      </HomeRightSection> */}
     </HomeGridContainer>
   );
 };

@@ -36,7 +36,17 @@ export const HeaderLink = styled(NavLink)`
 `;
 
 export const NavContainer = styled.nav`
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+  
   display: flex;
   align-items: center;
   gap: 20px;
+`
+
+export const BurgerButton = styled.button`
+  background-color: transparent;
+  border: none;
+  color: #fff;
 `
