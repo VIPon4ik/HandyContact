@@ -24,10 +24,13 @@ const Header = () => {
   const isLoading = useSelector(selectAuthIsLoading);
   const [show, setShow] = useState(false);
 
-  const showMenu = () => setShow(state => !state)
+  const showMenu = () => setShow(state => !state);
 
   return (
     <HeaderContainer>
+      <BurgerButton type="button" onClick={showMenu}>
+        <MenuIcon style={{ fontSize: 30 }} />
+      </BurgerButton>
       <NavContainer>
         <Button
           variant="contained"
@@ -56,10 +59,7 @@ const Header = () => {
         </Button>
       </NavContainer>
       {!isLoading && (isLogged ? <UserMenu name={name} /> : <AuthMenu />)}
-      <BurgerButton type="button" onClick={showMenu}>
-        <MenuIcon style={{fontSize: 30}} />
-      </BurgerButton>
-      {show && <BurgerMenu showMenu={showMenu}/>}
+      {show && <BurgerMenu showMenu={showMenu} />}
     </HeaderContainer>
   );
 };

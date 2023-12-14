@@ -12,19 +12,20 @@ export const BurgerMenuContainer = styled.div`
   position: absolute;
   left: 0;
   top: 0;
-`
+  z-index: 100;
+`;
 
 export const BurgerNavContainer = styled.nav`
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 20px;
-`
+`;
 
 export const BurgerLink = styled(Link)`
   color: #fff;
   text-decoration: none;
-`
+`;
 
 export const CloseButton = styled.button`
   background: transparent;
