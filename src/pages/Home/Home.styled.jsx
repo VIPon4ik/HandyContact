@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import heroImage from '../../images/hero-image.jpg';
 
 export const HomeGridContainer = styled.div`
   display: flex;
@@ -18,8 +19,15 @@ export const HomeLeftSection = styled.section`
 
 export const HomeRightSection = styled.section`
   padding: 40px;
-  max-width: 558px;
+  width: 100%;
+  height: 100%;
   background: gray;
+  background-image: url(${heroImage});
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  background-size: cover;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
 `;
 
 export const HomeTitle = styled.h1`
