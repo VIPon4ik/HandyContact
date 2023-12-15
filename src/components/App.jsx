@@ -51,7 +51,7 @@ export const App = () => {
               <Route path="contacts" element={<Contacts />} />
               <Route path="contacts/add-contact" element={<AddContact />} />
             </Route>
-            <Route element={<PublicRoutes restricted />}>
+            <Route element={<PublicRoutes />}>
               <Route path="login" element={<Login />} />
               <Route path="registration" element={<Registration />} />
             </Route>

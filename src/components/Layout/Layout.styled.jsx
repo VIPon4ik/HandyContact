@@ -25,15 +25,10 @@ export const Container = styled.main`
   }
 
   @media screen and (min-width: 768px) {
-    & {
-      max-width: 768px;
-    }
+    max-width: 768px;
   }
 
   @media screen and (min-width: 1240px) {
-    & {
-      max-width: 1240px;
-    }
-  }  
-
+    max-width: 1240px;
+  }
 `;

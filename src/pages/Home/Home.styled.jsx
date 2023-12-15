@@ -14,9 +14,7 @@ export const HomeGridContainer = styled.div`
   margin-bottom: 20px;
 
   @media screen and (min-width: 768px) {
-    & {
-      flex-direction: row;
-    }
+    flex-direction: row;
   }
 `;
 
@@ -47,11 +45,9 @@ export const HomeRightSection = styled.section`
   border-bottom-left-radius: 20px;
 
   @media screen and (min-width: 768px) {
-    & {
-      border-bottom-right-radius: 20px;
-      border-top-right-radius: 20px;
-      border-bottom-left-radius: 0px;
-    }
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 0px;
   }
 `;
 
@@ -62,21 +58,18 @@ export const HomeTitle = styled.h1`
   line-height: 1.5;
 
   @media screen and (min-width: 1240px) {
-    & {
-      font-size: 28px;
-    }
+    font-size: 28px;
   }
 `;
 
 export const HomeTitleSpan = styled.span`
   font-size: 28px;
-  @media screen and (min-width: 1240px) {
-    & {
-      font-size: 50px;
-    }
-  }
   display: block;
   color: #007fff;
+  
+  @media screen and (min-width: 1240px) {
+    font-size: 50px;
+  }
 `;
 
 export const HomeText = styled.p`

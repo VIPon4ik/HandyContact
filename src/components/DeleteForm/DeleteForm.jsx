@@ -21,7 +21,7 @@ const DeleteForm = ({ ID, name, setShow }) => {
   };
 
   return (
-    <StyledDeleteForm style={{ background: '#fff' }} onSubmit={handleDelete}>
+    <StyledDeleteForm onSubmit={handleDelete}>
       <DeleteFormTitle>You sure you want to delete {name}?</DeleteFormTitle>
       <DeleteFormButtonsContainer>
         <Button variant="outlined" type="click" onClick={handleClose}>

@@ -3,8 +3,10 @@ import { Link } from 'react-router-dom';
 
 export const BurgerMenuContainer = styled.div`
   background-color: #1163c1;
+
   width: 100vw;
   height: 100vh;
+  
   display: flex;
   align-items: center;
   justify-content: center;

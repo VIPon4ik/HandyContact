@@ -8,6 +8,7 @@ export const StyledDeleteForm = styled.form`
   justify-content: center;
   gap: 20px;
   align-items: center;
+  background-color: #fff;
 `
 
 export const DeleteFormTitle = styled.h1`
