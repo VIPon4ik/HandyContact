@@ -25,9 +25,9 @@ export const App = () => {
 
   const fetchUserData = async () => {
     if (token) {
-      authToken.setToken(token);
-      await dispatch(signInByToken(token));
-      await dispatch(getContacts());
+        authToken.setToken(token);
+        await dispatch(signInByToken(token));
+        await dispatch(getContacts());
     }
 
     setIsLoading(false);
