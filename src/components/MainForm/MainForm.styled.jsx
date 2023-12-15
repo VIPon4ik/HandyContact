@@ -27,6 +27,7 @@ export const CentredTitle = styled.h1`
 export const ErrorMessage = styled.p`
   margin: 10px 0;
   color: tomato;
+  
   &:first-letter {
     text-transform: capitalize;
   }

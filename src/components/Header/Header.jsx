@@ -58,8 +58,8 @@ const Header = () => {
           Contacts
         </Button>
       </NavContainer>
-      {!isLoading && (isLogged ? <UserMenu name={name} /> : <AuthMenu />)}
       {show && <BurgerMenu showMenu={showMenu} />}
+      {!isLoading && (isLogged ? <UserMenu name={name} /> : <AuthMenu />)}
     </HeaderContainer>
   );
 };

@@ -9,7 +9,7 @@ export const BurgerMenuContainer = styled.div`
   align-items: center;
   justify-content: center;
 
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
   z-index: 100;

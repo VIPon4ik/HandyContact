@@ -1,4 +1,5 @@
 import React from 'react';
+import { createPortal } from 'react-dom';
 import {
   CloseButton,
   BurgerMenuContainer,
@@ -6,27 +7,23 @@ import {
   BurgerLink,
 } from './BurgerMenu.styled';
 import CloseIcon from '@mui/icons-material/Close';
-import { useSelector } from 'react-redux';
-import { selectIsLogged, selectAuthIsLoading } from '../../redux/selectors';
+
+const modalRoot = document.getElementById('modal-root');
 
 const BurgerMenu = ({ showMenu }) => {
-  const isLogged = useSelector(selectIsLogged);
-  const isLoading = useSelector(selectAuthIsLoading);
 
-  return (
+  return createPortal(
     <BurgerMenuContainer>
-      <BurgerNavContainer>
+      <BurgerNavContainer onClick={showMenu}>
         <BurgerLink to="/">Home</BurgerLink>
         <BurgerLink to="contacts/add-contact">Add contact</BurgerLink>
         <BurgerLink to="contacts">Contacts</BurgerLink>
-        {!isLoading && isLogged && (
-          <BurgerLink to="logout">Log out</BurgerLink>
-        )}
       </BurgerNavContainer>
       <CloseButton type="button" onClick={showMenu}>
         <CloseIcon />
       </CloseButton>
-    </BurgerMenuContainer>
+    </BurgerMenuContainer>,
+    modalRoot
   );
 };
 
