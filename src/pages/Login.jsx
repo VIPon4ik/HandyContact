@@ -8,7 +8,28 @@ import * as yup from 'yup';
 
 const schema = yup.object({
   email: yup.string().email().max(36).required(),
-  password: yup.string().min(8).max(36).required(),
+  password: yup
+    .string()
+    .min(8)
+    .max(36)
+    .required()
+    .test(
+      'lowercase',
+      'Password must contain at least one lowercase letter',
+      value => {
+        return /[a-zа-я]/.test(value);
+      }
+    )
+    .test(
+      'uppercase',
+      'Password must contain at least one uppercase letter',
+      value => {
+        return /[A-ZА-Я]/.test(value);
+      }
+    )
+    .test('digit', 'Password must contain at least one digit', value => {
+      return /\d/.test(value);
+    }),
 });
 
 const Login = () => {

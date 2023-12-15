@@ -26,17 +26,6 @@ const getFieldType = field => {
   }
 };
 
-const getDefaultValue = (type, defaultName, defaultNumber) => {
-  switch (type) {
-    case 'text':
-      return defaultName;
-    case 'tel':
-      return defaultNumber;
-    default:
-      return '';
-  }
-};
-
 const MainForm = ({
   title,
   handleSubmit,
@@ -61,6 +50,13 @@ const MainForm = ({
     }
   }, [reset, isSubmitSuccessful]);
 
+  useEffect(() => {
+    if (defaultName && defaultNumber) {
+      reset({ name: defaultName, number: defaultNumber });
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [defaultName, defaultNumber]);
+
   return (
     <FormContainer>
       <CentredTitle>{title}</CentredTitle>
@@ -74,7 +70,6 @@ const MainForm = ({
                 label={`${field.charAt(0).toUpperCase() + field.slice(1)}`}
                 variant="outlined"
                 {...register(field)}
-                defaultValue={getDefaultValue(type, defaultName, defaultNumber)}
               />
               <ErrorMessage>{errors[field]?.message}</ErrorMessage>
             </InputContainer>
