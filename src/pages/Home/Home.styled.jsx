@@ -2,27 +2,33 @@ import styled from '@emotion/styled';
 import heroImage from '../../images/hero-image.jpg';
 
 export const HomeGridContainer = styled.div`
-  @media screen and (min-width: 1240px) {
-    & {
-    }
-  }
-
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: #fff;
   border-radius: 20px;
   box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.2);
-  height: 600px;
+  height: 500px;
   max-width: 1240px;
   margin: 0 auto;
   margin-bottom: 20px;
+
+  @media screen and (min-width: 768px) {
+    & {
+      flex-direction: row;
+    }
+  }
 `;
 
 export const HomeLeftSection = styled.section`
   padding: 20px;
 
-  @media screen and (min-width: 1240px) {
+  @media screen and (min-width: 768px) {
+    padding: 60px;
+    max-width: 380px;
+  }
+
+  @media screen and (min-width: 768px) {
     padding: 100px;
     max-width: 550px;
   }
@@ -44,6 +50,7 @@ export const HomeRightSection = styled.section`
     & {
       border-bottom-right-radius: 20px;
       border-top-right-radius: 20px;
+      border-bottom-left-radius: 0px;
     }
   }
 `;

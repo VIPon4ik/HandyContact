@@ -4,8 +4,10 @@ import background from '../../images/background-image.jpg';
 export const Container = styled.main`
   padding: 0 20px;
   min-width: 320px;
+  max-width: 375px;
+  min-height: 100vh;
   padding-top: 100px;
-  min-height: 628px;
+  margin: 0 auto;
 
   &::before {
     content: ' ';
@@ -13,7 +15,7 @@ export const Container = styled.main`
     top: 0px;
     left: 0;
     width: 100%;
-    min-height: 628px;
+    min-height: 100vh;
     background-image: url(${background});
     opacity: 0.2;
     background-repeat: no-repeat;
@@ -23,14 +25,15 @@ export const Container = styled.main`
   }
 
   @media screen and (min-width: 768px) {
-    &::before {
-      min-height: 100vh;
+    & {
+      max-width: 768px;
+    }
+  }
+
+  @media screen and (min-width: 1240px) {
+    & {
+      max-width: 1240px;
     }
   }  
 
-  // @media screen and (min-width: 1240px) {
-  //   & {
-  //     padding: 0 20px;
-  //   }
-  // }
 `;
