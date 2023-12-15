@@ -28,7 +28,7 @@ export const HomeLeftSection = styled.section`
     max-width: 380px;
   }
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 1240px) {
     padding: 100px;
     max-width: 550px;
   }

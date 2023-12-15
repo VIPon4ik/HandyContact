@@ -2,13 +2,13 @@ import styled from '@emotion/styled';
 import { Link } from '@mui/material';
 
 export const FormContainer = styled.div`
-  min-width: 400px;
+  width: 100%;
   max-width: 400px;
-  margin: 0 auto;
   box-shadow: 1px 1px 4px 1px rgba(0, 0, 0, 0.2);
   padding: 40px 20px;
   border-radius: 4px;
   background-color: #fff;
+  margin: 0 auto;
   margin-top: 120px;
 `;
 

@@ -4,7 +4,7 @@ import background from '../../images/background-image.jpg';
 export const Container = styled.main`
   padding: 0 20px;
   min-width: 320px;
-  max-width: 375px;
+  max-width: 475px;
   min-height: 100vh;
   padding-top: 100px;
   margin: 0 auto;

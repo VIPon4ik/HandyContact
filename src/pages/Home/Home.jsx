@@ -9,6 +9,7 @@ import {
   HomeButtonContainer,
   HomeRightSection
 } from './Home.styled';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
   return (
@@ -25,10 +26,10 @@ const Home = () => {
           is 100% safe
         </HomeText>
         <HomeButtonContainer>
-          <Button variant="contained" disableElevation to="login">
+          <Button variant="contained" LinkComponent={Link} disableElevation to="login">
             Sign in
           </Button>
-          <Button variant="outlined" disableElevation to="contacts">
+          <Button variant="outlined" LinkComponent={Link} disableElevation to="contacts">
             Contacts
           </Button>
         </HomeButtonContainer>
