@@ -1,18 +1,19 @@
 import React from 'react';
 import { Button } from '@mui/material';
 import { NavContainer, HeaderLink } from 'components/Header/Header.styled';
+import { LimitedButton } from './UserMenu.styled';
 
 const UserMenu = ({ name }) => {
   return (
     <NavContainer>
-      <Button
+      <LimitedButton
         variant="contained"
         LinkComponent={HeaderLink}
         disableElevation
         to="contacts"
       >
         {name}
-      </Button>
+      </LimitedButton>
       <Button
         variant="contained"
         LinkComponent={HeaderLink}

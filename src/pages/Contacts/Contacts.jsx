@@ -12,11 +12,13 @@ const Contacts = () => {
   return (
     <>
       {isLoading && <Loader />}
-      <ContactsList>
-        {contacts.map(({ name, number, id }) => (
-          <ContactsItem key={id} ID={id} name={name} number={number} />
-        ))}
-      </ContactsList>
+      {contacts.length !== 0 && (
+        <ContactsList>
+          {contacts.map(({ name, number, id }) => (
+            <ContactsItem key={id} ID={id} name={name} number={number} />
+          ))}
+        </ContactsList>
+      )}
     </>
   );
 };

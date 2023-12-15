@@ -36,6 +36,10 @@ export const HeaderLink = styled(NavLink)`
 `;
 
 export const NavContainer = styled.nav`
+  display: flex;
+  gap: 20px;
+  align-items: center;
+
   &:nth-of-type(1) {
     display: none;
   }
@@ -44,10 +48,6 @@ export const NavContainer = styled.nav`
     &:nth-of-type(1) {
       display: flex;
     }
-
-    display: flex;
-    align-items: center;
-    gap: 20px;
   }
 `;
 
