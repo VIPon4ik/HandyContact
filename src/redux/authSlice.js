@@ -41,6 +41,8 @@ export const authSlice = createSlice({
         state.isLogged = true;
         state.isLoading = false;
         state.error = null;
+
+        token.setToken(action.payload.token);
       })
       .addCase(signInByToken.fulfilled, (state, action) => {
         state.name = action.payload.name;
@@ -66,6 +68,6 @@ export const authSlice = createSlice({
         state.isLogged = true;
 
         token.setToken(action.payload.token);
-      })
+      });
   },
 });
