@@ -6,6 +6,7 @@ import {
   ContactInfoContainer,
   ContactTitle,
   ContactButtonContainer,
+  ContactNumber,
 } from './ContactsItem.styled';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import EditIcon from '@mui/icons-material/Edit';
@@ -22,10 +23,10 @@ const ContactsItem = ({ name, number, ID }) => {
   return (
     <ContactsItemContainer>
       <ContactInfoContainer>
-        <AccountCircleIcon style={{ fontSize: 60 }} />
+        <AccountCircleIcon style={{ fontSize: 50 }} />
         <div>
           <ContactTitle>{name}</ContactTitle>
-          <p>{number}</p>
+          <ContactNumber>{number}</ContactNumber>
         </div>
       </ContactInfoContainer>
       <ContactButtonContainer>
@@ -43,7 +44,12 @@ const ContactsItem = ({ name, number, ID }) => {
       )}
       {showEdit && (
         <Modal>
-          <EditContact name={name} number={number} setShow={showEditModal} id={ID} />
+          <EditContact
+            name={name}
+            number={number}
+            setShow={showEditModal}
+            id={ID}
+          />
         </Modal>
       )}
     </ContactsItemContainer>
