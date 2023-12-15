@@ -36,20 +36,18 @@ export const HeaderLink = styled(NavLink)`
 `;
 
 export const NavContainer = styled.nav`
-  &:nth-child(even) {
+  &:nth-of-type(1) {
     display: none;
   }
 
   @media screen and (min-width: 1240px) {
-    &:nth-child(even) {
+    &:nth-of-type(1) {
       display: flex;
     }
 
-    & {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
+    display: flex;
+    align-items: center;
+    gap: 20px;
   }
 `;
 
@@ -59,8 +57,6 @@ export const BurgerButton = styled.button`
   color: #fff;
 
   @media screen and (min-width: 1240px) {
-    & {
-      display: none;
-    }
+    display: none;
   }
 `;
