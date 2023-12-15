@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { TextField } from '@mui/material';
 import { Button } from '@mui/material';
 import {
   FormContainer,
@@ -7,6 +6,8 @@ import {
   StyledForm,
   ErrorMessage,
   StyledLink,
+  InputContainer,
+  StyledInput,
 } from './MainForm.styled';
 import { Link as RouterLink } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
@@ -67,8 +68,8 @@ const MainForm = ({
         {fields.map((field, index) => {
           const type = getFieldType(field);
           return (
-            <>
-              <TextField
+            <InputContainer key={field}>
+              <StyledInput
                 type={type}
                 label={`${field.charAt(0).toUpperCase() + field.slice(1)}`}
                 variant="outlined"
@@ -76,7 +77,7 @@ const MainForm = ({
                 defaultValue={getDefaultValue(type, defaultName, defaultNumber)}
               />
               <ErrorMessage>{errors[field]?.message}</ErrorMessage>
-            </>
+            </InputContainer>
           );
         })}
         <Button variant="contained" type="submit" size="large">

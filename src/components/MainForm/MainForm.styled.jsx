@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { Link } from '@mui/material';
+import { Link, TextField } from '@mui/material';
 
 export const FormContainer = styled.div`
   width: 100%;
@@ -16,6 +16,14 @@ export const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
 `;
+
+export const InputContainer = styled.div`
+  width: 100%;
+`
+
+export const StyledInput = styled(TextField)`
+  width: 100%;
+`
 
 export const CentredTitle = styled.h1`
   text-align: center;
