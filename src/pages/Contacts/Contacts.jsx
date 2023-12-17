@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectContacts, selectContactsIsLoading } from '../../redux/selectors';
 import ContactsItem from 'components/ContactsItem/ContactsItem';
 import Loader from 'components/Loader/Loader';
-import { ContactsList } from './Contacts.styled';
+import { ContactsList, FilterInput } from './Contacts.styled';
 import MainForm from 'components/MainForm/MainForm';
 import * as yup from 'yup';
 import { addContact } from '../../redux/operations';
@@ -26,12 +26,13 @@ const Contacts = () => {
 
   return (
     <>
+      {isLoading && <Loader />}
       <MainForm
         title="Add contact"
         handleSubmit={handleSubmit}
         validationSchema={schema}
       />
-      {isLoading && <Loader />}
+      <FilterInput label="Filter" variant="outlined" type="text" />
       {contacts.length !== 0 && (
         <ContactsList>
           {contacts.map(({ name, number, id }) => (

@@ -8,7 +8,8 @@ export const FormContainer = styled.div`
   padding: 40px 20px;
   border-radius: 4px;
   background-color: #fff;
-  margin: 100px auto;
+  margin: 40px auto;
+  margin-top: 100px;
 `;
 
 export const StyledForm = styled.form`
