@@ -15,7 +15,6 @@ const Home = lazy(() => import('pages/Home/Home'));
 const Login = lazy(() => import('pages/Login'));
 const Logout = lazy(() => import('pages/Logout'));
 const Contacts = lazy(() => import('pages/Contacts/Contacts'));
-const AddContact = lazy(() => import('pages/AddContact'));
 const PageNotFound = lazy(() => import('pages/PageNotFound/PageNotFound'));
 
 export const App = () => {
@@ -49,7 +48,6 @@ export const App = () => {
             <Route element={<PrivateRoutes />}>
               <Route path="logout" element={<Logout />} />
               <Route path="contacts" element={<Contacts />} />
-              <Route path="contacts/add-contact" element={<AddContact />} />
             </Route>
             <Route element={<PublicRoutes />}>
               <Route path="login" element={<Login />} />

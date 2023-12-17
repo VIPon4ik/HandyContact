@@ -16,7 +16,6 @@ const BurgerMenu = ({ showMenu }) => {
     <BurgerMenuContainer>
       <BurgerNavContainer onClick={showMenu}>
         <BurgerLink to="/">Home</BurgerLink>
-        <BurgerLink to="contacts/add-contact">Add contact</BurgerLink>
         <BurgerLink to="contacts">Contacts</BurgerLink>
       </BurgerNavContainer>
       <CloseButton type="button" onClick={showMenu}>
