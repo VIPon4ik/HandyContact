@@ -8,8 +8,9 @@ export const HeaderContainer = styled.header`
   align-items: center;
   justify-content: space-between;
   background-color: rgb(25, 118, 210);
-  position: fixed;
   width: 100%;
+  position: fixed;
+  z-index: 10;
 `;
 
 export const HeaderLink = styled(NavLink)`

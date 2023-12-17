@@ -15,6 +15,7 @@ export const Container = styled.main`
     top: 0px;
     left: 0;
     width: 100%;
+    min-height: 620px;
     height: 100%;
     background-image: url(${background});
     opacity: 0.2;
