@@ -10,7 +10,16 @@ import * as yup from 'yup';
 
 const schema = yup.object({
   name: yup.string().min(2).max(36).required(),
-  number: yup.string().min(8).max(14).required(),
+  number: yup
+    .number()
+    .integer()
+    .positive()
+    .test('len', 'Number must be between 8 and 14 digits', value => {
+      const stringValue = value.toString();
+      return stringValue.length >= 8 && stringValue.length <= 14;
+    })
+    .required()
+    .typeError('Number cannot be a string'),
 });
 
 const EditContact = ({ name, number, id, setShow }) => {
@@ -34,7 +43,9 @@ const EditContact = ({ name, number, id, setShow }) => {
         defaultName={name}
         defaultNumber={number}
       />
-      <CloseButton type='button' onClick={setShow}><CloseIcon /></CloseButton>
+      <CloseButton type="button" onClick={setShow}>
+        <CloseIcon />
+      </CloseButton>
     </div>
   );
 };
