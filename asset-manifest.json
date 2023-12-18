@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/HandyContact/static/css/main.318cd12e.css",
-    "main.js": "/HandyContact/static/js/main.c187ecec.js",
+    "main.js": "/HandyContact/static/js/main.0651727c.js",
     "static/js/451.60ff8f8d.chunk.js": "/HandyContact/static/js/451.60ff8f8d.chunk.js",
     "static/js/665.38fc635c.chunk.js": "/HandyContact/static/js/665.38fc635c.chunk.js",
     "static/js/38.3889bc20.chunk.js": "/HandyContact/static/js/38.3889bc20.chunk.js",
@@ -13,7 +13,7 @@
     "static/media/background-image.jpg": "/HandyContact/static/media/background-image.edcf2d56d016bdbbc7e0.jpg",
     "index.html": "/HandyContact/index.html",
     "main.318cd12e.css.map": "/HandyContact/static/css/main.318cd12e.css.map",
-    "main.c187ecec.js.map": "/HandyContact/static/js/main.c187ecec.js.map",
+    "main.0651727c.js.map": "/HandyContact/static/js/main.0651727c.js.map",
     "451.60ff8f8d.chunk.js.map": "/HandyContact/static/js/451.60ff8f8d.chunk.js.map",
     "665.38fc635c.chunk.js.map": "/HandyContact/static/js/665.38fc635c.chunk.js.map",
     "38.3889bc20.chunk.js.map": "/HandyContact/static/js/38.3889bc20.chunk.js.map",
@@ -24,6 +24,6 @@
   },
   "entrypoints": [
     "static/css/main.318cd12e.css",
-    "static/js/main.c187ecec.js"
+    "static/js/main.0651727c.js"
   ]
 }
