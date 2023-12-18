@@ -4,7 +4,7 @@ module.exports = {
   entry: `${__dirname}/src/index.tsx`,
   output: {
     path: `${__dirname}/build`,
-    publicPath: '/goit-react-hw-08-phonebook/build/',
+    publicPath: '/HandyContact/build/',
     filename: 'bundle.js',
   },
 
